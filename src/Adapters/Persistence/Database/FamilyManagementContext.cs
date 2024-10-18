@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 using Application.Ports;
 
+using Domain.Entities;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Database
@@ -17,6 +19,10 @@ namespace Persistence.Database
         : base(options)
         {
         }
+
+        public DbSet<FamilyGroup> FamilyGroups { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<TaskItem> TaskItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
