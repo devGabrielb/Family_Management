@@ -11,13 +11,13 @@ namespace Domain.Common
         private readonly List<IDomainEvent> _domainEvents = new();
         public Guid Id { get; private set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatededAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         protected Entity()
         {
             Id = Guid.NewGuid();
             CreatedAt = DateTime.UtcNow;
-            UpdatededAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
         }
 
         public IReadOnlyList<IDomainEvent> GetDomainEvents()

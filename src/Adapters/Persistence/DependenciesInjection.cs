@@ -21,6 +21,10 @@ namespace Persistence
             services.AddDbContext<FamilyManagementContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("Database")!).UseSnakeCaseNamingConvention());
 
+            services.AddScoped<IFamilyGroupRepository, FamilyGroupRepository>();
+            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<FamilyManagementContext>());
+
+
             return services;
         }
     }
